@@ -1,0 +1,74 @@
+/* src/RedditPostCard.css */
+.reddit-post-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.reddit-post-card__image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.reddit-post-card__content {
+  display: flex;
+  padding: 10px;
+}
+
+.reddit-post-card__votes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.reddit-post-card__votes-count {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.reddit-post-card__votes-label {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.reddit-post-card__details {
+  flex: 1;
+}
+
+.reddit-post-card__title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  color: #0079d3;
+  text-decoration: none;
+}
+
+.reddit-post-card__title:hover {
+  text-decoration: underline;
+}
+
+.reddit-post-card__author,
+.reddit-post-card__comments,
+.reddit-post-card__subreddit,
+.reddit-post-card__created {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.reddit-post-card__external-link {
+  display: block;
+  margin-top: 5px;
+  color: #0079d3;
+  text-decoration: none;
+}
+
+.reddit-post-card__external-link:hover {
+  text-decoration: underline;
+}
