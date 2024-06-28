@@ -12,6 +12,13 @@ export interface RedditPost {
     thumbnail: string;
     url: string;
     created_utc: number;
+    preview?: {
+      images: {
+        source: {
+          url: string;
+        };
+      }[];
+    };
   };
 }
 

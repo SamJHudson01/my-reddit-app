@@ -9,3 +9,22 @@
   max-width: 50%;
   margin: 0 auto;
 }
+
+
+@media screen and (max-width: 1000px) {
+  .search-results {
+    max-width: 75%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .search-results {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .search-results {
+    max-width: 100%;
+  }
+}

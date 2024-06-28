@@ -1,26 +1,26 @@
-// src/App.tsx
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { RedditPost, RedditApiResponse } from "./interfaces/redditPost";
+import { RedditPost } from "./interfaces/redditPost";
 import { SearchResults } from "./components/searchResults/SearchResults";
+import SearchBar from "./components/searchBar/SearchBar";
+import { useGetRedditPostsQuery } from "./store/redditFetch";
 
 const App: React.FC = () => {
-  const [redditPosts, setRedditPosts] = React.useState<RedditPost[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const { data, error, isLoading } = useGetRedditPostsQuery(searchTerm);
 
-  React.useEffect(() => {
-    fetch("https://www.reddit.com/r/reactjs.json")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json: RedditApiResponse) => {
-        console.log(json);
-        setRedditPosts(json.data.children);
-      });
-  }, []);
+  const redditPosts: RedditPost[] = data?.data.children ?? [];
+
+  const handleSearch = (query: string) => {
+    setSearchTerm(query);
+  };
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred</div>;
 
   return (
-    <div>
-      <h1>Reddit Posts</h1>
+    <div className="container">
+      <SearchBar onSearch={handleSearch} />
       <SearchResults posts={redditPosts} />
     </div>
   );
